@@ -2,9 +2,9 @@
 
 Nama dan Anggota Kelompok
 
-Prakosa Dwi Prasetya            : 1402017119
-Rifqi Auliya                    : 1402017127
-Cesario Auditya Pratama Putra   : 1402017164
+| Prakosa Dwi Prasetya            : 1402017119
+| Rifqi Auliya                    : 1402017127
+| Cesario Auditya Pratama Putra   : 1402017164
 
 Tautan untuk akses halaman proyek akhir
 
