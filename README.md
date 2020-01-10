@@ -10,7 +10,7 @@ Tautan untuk akses halaman proyek akhir:
 Alamat Website :
 https://grafbot.000webhostapp.com/Projek_Akhir_Grafkom_Kelompok_Grafbot/index.html
 
-Peyimmpanan File Proyek akhir :
+Peyimpanan File Proyek akhir :
 
 Github : 
 https://github.com/prakas-asus/GrafBot
