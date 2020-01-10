@@ -1,0 +1,275 @@
+<!-- Licensed under a BSD license. See license.html for license -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+        <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>3D Particle Explorations | Demo 1 | Codrops</title>
+    <meta name="description" content="An exploration of 3D particle animations using three.js and easing" />
+    <meta name="keywords" content="preloader, loader, animation, 3d, particles, three.js, easing, web development" />
+    <meta name="author" content="Jack Rugile for Codrops" />
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:100,400,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/base.css" />
+    <script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
+    <title>Three.js - Load .OBJ and .MTL file - Fixed</title>
+    <style>
+    html, body {
+        margin: 0;
+        height: 100%;
+    }
+    #c {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+    #set {
+      position: absolute;
+      font-family: arial;
+      font-style: bold;
+      left: 0;
+      top: 75%;
+      width: 100%;
+      text-align: center;
+      font-size: 50px;
+    }
+    #audio {
+      position: absolute;
+      font-family: arial;
+      font-style: bold;
+      left: 0;
+      top: 84%;
+      width: 100%;
+      text-align: center;
+      font-size: 50px;
+    }
+    </style>
+  </head>
+  <body>
+    <canvas id="c">
+      <a href="#" class="replay-animation">Replay</a>
+    </canvas>
+    <div id="audio">
+            <audio controls>
+              <source src="'a.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+            </audio>
+    </div>
+      <div class="content content--fixed">
+        <div id="set">
+          A'
+        </div>
+        <nav class="demo-1 demos">
+              <svg class="icon icon--keyboard"><use xlink:href="#icon-keyboard"></use></svg>
+              <a class="demo" href="asli.html"><span>Alif 1</span></a>
+              <a class="demo" href="asli2.html"><span>Ba 2</span></a>
+              <a class="demo" href="asli3.html"><span>Ta 3</span></a>
+              <a class="demo" href="asli4.html"><span>tsa 4</span></a>
+              <a class="demo" href="asli5.html"><span>jim 5</span></a>
+              <a class="demo" href="asli6.html"><span>ha 6</span></a>
+              <a class="demo" href="asli7.html"><span>kha 7</span></a>
+              <a class="demo" href="asli8.html"><span>da 8</span></a>
+              <a class="demo" href="asli9.html"><span>dza 9</span></a>
+              <a class="demo" href="asli10.html"><span>ra 10</span></a>
+              <a class="demo" href="asli11.html"><span>Ta 3</span></a>
+              <a class="demo" href="asli12.html"><span>Demo 4</span></a>
+              <a class="demo" href="asli13.html"><span>Demo 5</span></a>
+              <a class="demo" href="asli14.html"><span>Demo 6</span></a>
+              <a class="demo" href="asli15.html"><span>do 15</span></a>
+              <a class="demo" href="asli16.html"><span>Demo 8</span></a>
+              <a class="demo" href="asli17.html"><span>Demo 17</span></a>
+              <a class="demo demo--current" href="asli18.html"><span>a'in 18</span></a>
+              <a class="demo" href="asli19.html"><span>Demo 19</span></a>
+              <a class="demo" href="asli20.html"><span>Demo 20</span></a>
+              <a class="demo" href="asli21.html"><span>Demo 21</span></a>
+              <a class="demo" href="asli22.html"><span>Demo 22</span></a>
+              <a class="demo" href="asli23.html"><span>Demo 23</span></a>
+              <a class="demo" href="asli24.html"><span>Demo 24</span></a>
+              <a class="demo" href="asli25.html"><span>Demo 25</span></a>
+              <a class="demo" href="asli26.html"><span>Demo 26</span></a>
+              <a class="demo" href="asli27.html"><span>Demo 27</span></a>
+              <a class="demo" href="asli28.html"><span>Demo 28</span></a>
+              <a class="demo" href="asli29.html"><span>Demo 29</span></a>
+              <a class="demo" href="asli30.html"><span>Demo 30</span></a>
+        </nav>
+        <div class="debug">
+          <svg class="icon icon--debug" title="Toggle Debug Mode"><use xlink:href="#icon-debug"></use></svg>
+          <div class="timescale-wrap">
+            <label class="timescale-label">
+              <span class="timescale-title">Timescale:</span>
+              <span class="timescale-value">1.0</span>
+              <input class="timescale-range" type="range" min="0" max="3" step="0.1" value="1">
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="loader"></div>
+    <script src="js/demo.js"></script>
+    <script src="js/vendor/three.min.js"></script>
+    <script src="js/vendor/OrbitControls.js"></script>
+    <script src="js/vendor/fast-simplex-noise.js"></script>
+    <script src="dist/js/demo-1/index.bundle.js"></script>
+    <script src="OrbitControls.js"></script>
+  </body>
+  <script type="module">
+  import * as THREE from 'https://threejsfundamentals.org/threejs/resources/threejs/r110/build/three.module.js';
+  import {OrbitControls} from 'https://threejsfundamentals.org/threejs/resources/threejs/r110/examples/jsm/controls/OrbitControls.js';
+  import {OBJLoader2} from 'https://threejsfundamentals.org/threejs/resources/threejs/r110/examples/jsm/loaders/OBJLoader2.js';
+  import {MTLLoader} from 'https://threejsfundamentals.org/threejs/resources/threejs/r110/examples/jsm/loaders/MTLLoader.js';
+  import {MtlObjBridge} from 'https://threejsfundamentals.org/threejs/resources/threejs/r110/examples/jsm/loaders/obj2/bridge/MtlObjBridge.js';
+  function main() {
+  const canvas = document.querySelector('#c');
+  const renderer = new THREE.WebGLRenderer({canvas});
+
+  const fov = 45;
+  const aspect = 2;  // the canvas default
+  const near = 0.1;
+  const far = 100;
+  const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+  camera.position.set(0, 0, 4);
+
+  const controls = new OrbitControls(camera, canvas);
+  controls.target.set(0, 0, 0);
+  controls.update();
+
+  const scene = new THREE.Scene();
+  //scene.background = new THREE.Color('#99ccff');
+  
+  const loader = new THREE.TextureLoader();
+  const bgTexture = loader.load('https://p2.piqsels.com/preview/17/856/7/cloud-sky-mountain-snow.jpg');
+  scene.background = bgTexture;
+  
+  // // create an AudioListener and add it to the camera
+  // const listener = new THREE.AudioListener();
+  // camera.add( listener );
+
+  // // create a global audio source
+  // const sound = new THREE.Audio( listener );
+
+  // // load a sound and set it as the Audio object's buffer
+  // const audioLoader = new THREE.AudioLoader();
+  // audioLoader.load( 'nussa_huruf_hijaiyah.mp3', function( buffer ) {
+  //   sound.setBuffer( buffer );
+  //   sound.setLoop( true );
+  //   sound.setVolume( 0.5 );
+  //   sound.play();
+  // });
+  
+  {
+    const planeSize = 40;
+
+    const loader = new THREE.TextureLoader();
+    const texture = loader.load('https://akcdn.detik.net.id/community/media/visual/2019/10/14/ac4f4889-7789-48a6-b739-bd25ed59508e.jpeg?w=780&q=90');
+    texture.wrapS = THREE.RepeatWrapping;
+    texture.wrapT = THREE.RepeatWrapping;
+    texture.magFilter = THREE.NearestFilter;
+    const repeats = planeSize / 2;
+    //texture.repeat.set(repeats, repeats);
+
+    const planeGeo = new THREE.PlaneBufferGeometry(planeSize, planeSize);
+    const planeMat = new THREE.MeshPhongMaterial({
+      map: texture,
+      side: THREE.DoubleSide,
+    });
+    const mesh = new THREE.Mesh(planeGeo, planeMat);
+    //mesh.scale.set(2,2,2);
+    mesh.rotation.x = Math.PI * -.5;  
+    mesh.position.set(0,-5,0);
+    //scene.add(mesh);
+  }
+
+  {
+    const skyColor = 0xB1E1FF;  // light blue
+    const groundColor = 0xB97A20;  // brownish orange
+    const intensity = 1;
+    const light = new THREE.HemisphereLight(skyColor, groundColor, intensity);
+    scene.add(light);
+  }
+
+  {
+    const color = 0xFFFFFF;
+    const intensity = 1;
+    const light = new THREE.DirectionalLight(color, intensity);
+    light.position.set(5, 10, 2);
+    scene.add(light);
+    scene.add(light.target);
+  }
+
+  {
+    const mtlLoader = new MTLLoader();
+    mtlLoader.load('18a\'in.mtl', (mtlParseResult) => {
+      const objLoader = new OBJLoader2();
+      const materials =  MtlObjBridge.addMaterialsFromMtlLoader(mtlParseResult);
+      objLoader.addMaterials(materials);
+
+      //materials.Material.side = THREE.DoubleSide;
+      
+      objLoader.load('18a\'in.obj', (root) => {
+          root.scale.set(3,3,3);
+        scene.add(root);
+      });
+    });
+  }
+
+  {
+
+    const mtlLoader = new MTLLoader();
+    mtlLoader.load('fathah.mtl', (mtlParseResult) => {
+      const objLoader = new OBJLoader2();
+      const materials =  MtlObjBridge.addMaterialsFromMtlLoader(mtlParseResult);
+      objLoader.addMaterials(materials);
+
+      //materials.Material.side = THREE.DoubleSide;
+      
+      objLoader.load('fathah.obj', (root) => {
+          root.scale.set(3,3,3);
+          root.position.set(0, 1, 0);
+        scene.add(root);
+
+
+      });
+    });
+  }
+
+  function resizeRendererToDisplaySize(renderer) {
+    const canvas = renderer.domElement;
+    const width = canvas.clientWidth;
+    const height = canvas.clientHeight;
+    const needResize = canvas.width !== width || canvas.height !== height;
+    if (needResize) {
+      renderer.setSize(width, height, false);
+    }
+    return needResize;
+  }
+
+  function render() {
+
+    if (resizeRendererToDisplaySize(renderer)) {
+      const canvas = renderer.domElement;
+      camera.aspect = canvas.clientWidth / canvas.clientHeight;
+      camera.updateProjectionMatrix();
+    }
+
+    renderer.render(scene, camera);
+    requestAnimationFrame(render);
+
+  }
+
+  requestAnimationFrame(render);
+      function animate () {
+      requestAnimationFrame( animate );
+        root.rotation.x += 0.01;
+        root.rotation.y += 0.01;
+
+        renderer.render( scene, camera ); 
+      };
+      
+            animate();
+
+
+}
+  main();
+</script>
+</html>
